@@ -1,0 +1,48 @@
+project:
+  seed: 42
+
+paths:
+  db_path: "data/churn_system.sqlite"
+  model_dir: "models"
+  raw_csv_path: "data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv"
+
+data_source:
+  prefer_csv: true
+  fallback_to_synthetic: true
+
+training:
+  n_customers: 5000
+  test_size: 0.2
+  random_forest_trees: 250
+  churn_threshold: 0.55
+  logistic_weight: 0.4
+  rf_weight: 0.6
+
+clv:
+  gross_margin_rate: 0.42
+  monthly_discount_rate: 0.01
+  min_remaining_months: 1
+  max_remaining_months: 60
+
+simulation:
+  batch_size: 25
+  max_support_tickets_increment: 2
+  max_last_login_days_increment: 5
+  usage_noise_sd: 5
+  satisfaction_noise_sd: 4
+
+decision_engine:
+  actions:
+    discount:
+      cost: 22
+      effectiveness: 0.30
+    retention_call:
+      cost: 8
+      effectiveness: 0.18
+    no_action:
+      cost: 0
+      effectiveness: 0.00
+
+ui:
+  high_risk_cutoff: 0.70
+  medium_risk_cutoff: 0.40
