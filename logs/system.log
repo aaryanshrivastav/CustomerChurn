@@ -207,3 +207,16 @@
   Details: System ready
 [2026-04-06 00:09:24] INFO: Pipeline success
   Details: Scored 25 customers
+=== Log Session Started: 2026-04-08 21:48:05.546212 ===
+[2026-04-08 21:48:05] INFO: Bootstrap system
+  Details: Starting initialization
+[2026-04-08 21:48:06] INFO: Pipeline execution
+  Details: Scoring 7043 customers
+[2026-04-08 21:48:08] INFO: Pipeline success
+  Details: Scored 7043 customers
+[2026-04-08 21:48:08] INFO: Bootstrap complete
+  Details: System ready
+[2026-04-08 22:08:13] INFO: Data loading
+  Details: Loading CSV: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+[2026-04-08 22:08:31] INFO: Data loading
+  Details: Loading CSV: data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv

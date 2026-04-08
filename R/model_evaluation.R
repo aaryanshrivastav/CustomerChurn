@@ -77,16 +77,21 @@ evaluate_survival_model <- function(models, test_df) {
         type = "risk"
       )
 
-      # Concordance index
-      concordance <- survival::concordanceC(
-        test_df$duration,
-        test_df$event,
-        pred_risk
+      # Harrell's C-index using risk scores from the Cox model.
+      concordance <- survival::concordance(
+        survival::Surv(test_df$duration, test_df$event) ~ pred_risk,
+        reverse = TRUE
       )
 
+      se <- if (!is.null(concordance$var) && is.finite(concordance$var)) {
+        sqrt(concordance$var)
+      } else {
+        NA_real_
+      }
+
       list(
-        concordance_index = concordance$concordance,
-        se = concordance$se
+        concordance_index = as.numeric(concordance$concordance),
+        se = as.numeric(se)
       )
     },
     error = function(e) {
